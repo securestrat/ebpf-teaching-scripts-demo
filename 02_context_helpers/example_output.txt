@@ -1,0 +1,136 @@
+[95m[1m=== eBPF Curriculum - Lesson 2: Context & Helper Functions ===[0m
+[94m[*] Compiling eBPF program and checking with the Verifier...[0m
+[92m[✓] eBPF program compiled and verified successfully.[0m
+[94m[*] Attaching entry kprobe to 'b'__x64_sys_execve''...[0m
+[92m[✓] eBPF program is successfully active![0m
+[93m[1m
+👉 RUN A COMMAND TO TEST: [0m
+   Launch a new program in another terminal (e.g., 'curl ipinfo.io' or 'cat /etc/hosts').
+   You will see the process name (COMM), its PID, and the user (UID) who triggered it.
+[94m[*] Reading from trace pipe (Press Ctrl+C to stop)...[0m
+[92m[EVENT][0m [1msshd[0m (loader PID 8108) triggered an execve:
+   ↳ [94mEXEC: PID=8108, UID=0, COMM=sshd[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8110) triggered an execve:
+   ↳ [94mEXEC: PID=8110, UID=0, COMM=sshd-session[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8111) triggered an execve:
+   ↳ [94mEXEC: PID=8111, UID=0, COMM=sshd-session[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8113) triggered an execve:
+   ↳ [94mEXEC: PID=8113, UID=0, COMM=sshd-session[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8115) triggered an execve:
+   ↳ [94mEXEC: PID=8115, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mgrepconf.sh[0m (loader PID 8116) triggered an execve:
+   ↳ [94mEXEC: PID=8116, UID=0, COMM=grepconf.sh[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8117) triggered an execve:
+   ↳ [94mEXEC: PID=8117, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mgrepconf.sh[0m (loader PID 8118) triggered an execve:
+   ↳ [94mEXEC: PID=8118, UID=0, COMM=grepconf.sh[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8119) triggered an execve:
+   ↳ [94mEXEC: PID=8119, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mgrepconf.sh[0m (loader PID 8120) triggered an execve:
+   ↳ [94mEXEC: PID=8120, UID=0, COMM=grepconf.sh[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8122) triggered an execve:
+   ↳ [94mEXEC: PID=8122, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mxargs[0m (loader PID 8123) triggered an execve:
+   ↳ [94mEXEC: PID=8123, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8124) triggered an execve:
+   ↳ [94mEXEC: PID=8124, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8125) triggered an execve:
+   ↳ [94mEXEC: PID=8125, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8125) triggered an execve:
+   ↳ [94mEXEC: PID=8125, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8125) triggered an execve:
+   ↳ [94mEXEC: PID=8125, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8125) triggered an execve:
+   ↳ [94mEXEC: PID=8125, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8127) triggered an execve:
+   ↳ [94mEXEC: PID=8127, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mxargs[0m (loader PID 8128) triggered an execve:
+   ↳ [94mEXEC: PID=8128, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8129) triggered an execve:
+   ↳ [94mEXEC: PID=8129, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8130) triggered an execve:
+   ↳ [94mEXEC: PID=8130, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8130) triggered an execve:
+   ↳ [94mEXEC: PID=8130, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8130) triggered an execve:
+   ↳ [94mEXEC: PID=8130, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8130) triggered an execve:
+   ↳ [94mEXEC: PID=8130, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8131) triggered an execve:
+   ↳ [94mEXEC: PID=8131, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8133) triggered an execve:
+   ↳ [94mEXEC: PID=8133, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8134) triggered an execve:
+   ↳ [94mEXEC: PID=8134, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8136) triggered an execve:
+   ↳ [94mEXEC: PID=8136, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8135) triggered an execve:
+   ↳ [94mEXEC: PID=8135, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8137) triggered an execve:
+   ↳ [94mEXEC: PID=8137, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8138) triggered an execve:
+   ↳ [94mEXEC: PID=8138, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8113) triggered an execve:
+   ↳ [94mEXEC: PID=8113, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1msshd[0m (loader PID 8140) triggered an execve:
+   ↳ [94mEXEC: PID=8140, UID=0, COMM=sshd[0m
+[92m[EVENT][0m [1msshd-session[0m (loader PID 8142) triggered an execve:
+   ↳ [94mEXEC: PID=8142, UID=0, COMM=sshd-session[0m
+[92m[EVENT][0m [1msshd-session[0m (loader PID 8143) triggered an execve:
+   ↳ [94mEXEC: PID=8143, UID=0, COMM=sshd-session[0m
+[92m[EVENT][0m [1msshd-session[0m (loader PID 8145) triggered an execve:
+   ↳ [94mEXEC: PID=8145, UID=0, COMM=sshd-session[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8147) triggered an execve:
+   ↳ [94mEXEC: PID=8147, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mgrepconf.sh[0m (loader PID 8148) triggered an execve:
+   ↳ [94mEXEC: PID=8148, UID=0, COMM=grepconf.sh[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8149) triggered an execve:
+   ↳ [94mEXEC: PID=8149, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mgrepconf.sh[0m (loader PID 8150) triggered an execve:
+   ↳ [94mEXEC: PID=8150, UID=0, COMM=grepconf.sh[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8151) triggered an execve:
+   ↳ [94mEXEC: PID=8151, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mgrepconf.sh[0m (loader PID 8152) triggered an execve:
+   ↳ [94mEXEC: PID=8152, UID=0, COMM=grepconf.sh[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8154) triggered an execve:
+   ↳ [94mEXEC: PID=8154, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mxargs[0m (loader PID 8155) triggered an execve:
+   ↳ [94mEXEC: PID=8155, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mcat[0m (loader PID 8156) triggered an execve:
+   ↳ [94mEXEC: PID=8156, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mcat[0m (loader PID 8156) triggered an execve:
+   ↳ [94mEXEC: PID=8156, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mcat[0m (loader PID 8156) triggered an execve:
+   ↳ [94mEXEC: PID=8156, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mcat[0m (loader PID 8156) triggered an execve:
+   ↳ [94mEXEC: PID=8156, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8157) triggered an execve:
+   ↳ [94mEXEC: PID=8157, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8159) triggered an execve:
+   ↳ [94mEXEC: PID=8159, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8160) triggered an execve:
+   ↳ [94mEXEC: PID=8160, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8161) triggered an execve:
+   ↳ [94mEXEC: PID=8161, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8162) triggered an execve:
+   ↳ [94mEXEC: PID=8162, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8162) triggered an execve:
+   ↳ [94mEXEC: PID=8162, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mxargs[0m (loader PID 8162) triggered an execve:
+   ↳ [94mEXEC: PID=8162, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mxargs[0m (loader PID 8162) triggered an execve:
+   ↳ [94mEXEC: PID=8162, UID=0, COMM=xargs[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8163) triggered an execve:
+   ↳ [94mEXEC: PID=8163, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8165) triggered an execve:
+   ↳ [94mEXEC: PID=8165, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8166) triggered an execve:
+   ↳ [94mEXEC: PID=8166, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8168) triggered an execve:
+   ↳ [94mEXEC: PID=8168, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1m<...>[0m (loader PID 8167) triggered an execve:
+   ↳ [94mEXEC: PID=8167, UID=0, COMM=bash[0m
+[92m[EVENT][0m [1mbash[0m (loader PID 8145) triggered an execve:
+   ↳ [94mEXEC: PID=8145, UID=0, COMM=bash[0m
+[92m[*] Detaching kprobe and exiting. Goodbye![0m
+Connection to 172.16.205.135 closed.

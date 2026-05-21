@@ -1,0 +1,136 @@
+[95m[1m=== eBPF Curriculum - Lesson 4: Tracepoints ===[0m
+[94m[*] Compiling eBPF program with TRACEPOINT macros...[0m
+[92m[✓] eBPF program verified. Tracepoint registered in kernel.[0m
+[94m[*] Listening for 'syscalls:sys_enter_execve' events...[0m
+[92m[✓] Success! Dynamic kprobes bypassed; now using stable kernel API.[0m
+[93m[1m
+👉 TEST THE STABILITY: [0m
+   Launch commands in another terminal (e.g., 'grep', 'mkdir test', 'rmdir test').
+   Notice that we extract the *exact* binary path, even if it is a long user-space string!
+[94m[*] Reading from trace pipe (Press Ctrl+C to stop)...[0m
+[96m[AUDIT][0m Process [1msshd-session[0m (PID 8302) executed binary:
+   ↳ [92m[1m/usr/libexec/openssh/sshd-session[0m
+[96m[AUDIT][0m Process [1msshd-session[0m (PID 8304) executed binary:
+   ↳ [92m[1m[Error reading filename][0m
+[96m[AUDIT][0m Process [1msshd-session[0m (PID 8305) executed binary:
+   ↳ [92m[1m[Error reading filename][0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8307) executed binary:
+   ↳ [92m[1m/bin/bash[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8309) executed binary:
+   ↳ [92m[1m/usr/libexec/grepconf.sh[0m
+[96m[AUDIT][0m Process [1mgrepconf.sh[0m (PID 8310) executed binary:
+   ↳ [92m[1m/usr/bin/grep[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8311) executed binary:
+   ↳ [92m[1m/usr/libexec/grepconf.sh[0m
+[96m[AUDIT][0m Process [1mgrepconf.sh[0m (PID 8312) executed binary:
+   ↳ [92m[1m/usr/bin/grep[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8313) executed binary:
+   ↳ [92m[1m/usr/libexec/grepconf.sh[0m
+[96m[AUDIT][0m Process [1mgrepconf.sh[0m (PID 8314) executed binary:
+   ↳ [92m[1m/usr/bin/grep[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8316) executed binary:
+   ↳ [92m[1m/usr/bin/find[0m
+[96m[AUDIT][0m Process [1mxargs[0m (PID 8317) executed binary:
+   ↳ [92m[1m/usr/bin/xargs[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8318) executed binary:
+   ↳ [92m[1m/usr/bin/tr[0m
+[96m[AUDIT][0m Process [1mxargs[0m (PID 8319) executed binary:
+   ↳ [92m[1m/usr/local/sbin/cat[0m
+[96m[AUDIT][0m Process [1mxargs[0m (PID 8319) executed binary:
+   ↳ [92m[1m/usr/local/bin/cat[0m
+[96m[AUDIT][0m Process [1mxargs[0m (PID 8319) executed binary:
+   ↳ [92m[1m/usr/sbin/cat[0m
+[96m[AUDIT][0m Process [1mxargs[0m (PID 8319) executed binary:
+   ↳ [92m[1m/usr/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8321) executed binary:
+   ↳ [92m[1m/usr/bin/find[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8322) executed binary:
+   ↳ [92m[1m/usr/bin/xargs[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8323) executed binary:
+   ↳ [92m[1m/usr/bin/tr[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8324) executed binary:
+   ↳ [92m[1m/usr/local/sbin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8324) executed binary:
+   ↳ [92m[1m/usr/local/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8324) executed binary:
+   ↳ [92m[1m/usr/sbin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8324) executed binary:
+   ↳ [92m[1m/usr/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8325) executed binary:
+   ↳ [92m[1m/usr/bin/tty[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8327) executed binary:
+   ↳ [92m[1m/usr/bin/locale[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8328) executed binary:
+   ↳ [92m[1m/usr/bin/sed[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8330) executed binary:
+   ↳ [92m[1m/usr/bin/readlink[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8329) executed binary:
+   ↳ [92m[1m/usr/bin/basename[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8331) executed binary:
+   ↳ [92m[1m/usr/bin/mkdir[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8332) executed binary:
+   ↳ [92m[1m/usr/bin/rmdir[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8307) executed binary:
+   ↳ [92m[1m/usr/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8334) executed binary:
+   ↳ [92m[1m/usr/libexec/openssh/sshd-session[0m
+[96m[AUDIT][0m Process [1msshd-session[0m (PID 8336) executed binary:
+   ↳ [92m[1m[Error reading filename][0m
+[96m[AUDIT][0m Process [1msshd-session[0m (PID 8337) executed binary:
+   ↳ [92m[1m[Error reading filename][0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8339) executed binary:
+   ↳ [92m[1m/bin/bash[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8341) executed binary:
+   ↳ [92m[1m/usr/libexec/grepconf.sh[0m
+[96m[AUDIT][0m Process [1mgrepconf.sh[0m (PID 8342) executed binary:
+   ↳ [92m[1m/usr/bin/grep[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8343) executed binary:
+   ↳ [92m[1m/usr/libexec/grepconf.sh[0m
+[96m[AUDIT][0m Process [1mgrepconf.sh[0m (PID 8344) executed binary:
+   ↳ [92m[1m/usr/bin/grep[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8345) executed binary:
+   ↳ [92m[1m/usr/libexec/grepconf.sh[0m
+[96m[AUDIT][0m Process [1mgrepconf.sh[0m (PID 8346) executed binary:
+   ↳ [92m[1m/usr/bin/grep[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8348) executed binary:
+   ↳ [92m[1m/usr/bin/find[0m
+[96m[AUDIT][0m Process [1mxargs[0m (PID 8349) executed binary:
+   ↳ [92m[1m/usr/bin/xargs[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8350) executed binary:
+   ↳ [92m[1m/usr/bin/tr[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8351) executed binary:
+   ↳ [92m[1m/usr/local/sbin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8351) executed binary:
+   ↳ [92m[1m/usr/local/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8351) executed binary:
+   ↳ [92m[1m/usr/sbin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8351) executed binary:
+   ↳ [92m[1m/usr/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8353) executed binary:
+   ↳ [92m[1m/usr/bin/find[0m
+[96m[AUDIT][0m Process [1mxargs[0m (PID 8354) executed binary:
+   ↳ [92m[1m/usr/bin/xargs[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8355) executed binary:
+   ↳ [92m[1m/usr/bin/tr[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8356) executed binary:
+   ↳ [92m[1m/usr/local/sbin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8356) executed binary:
+   ↳ [92m[1m/usr/local/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8356) executed binary:
+   ↳ [92m[1m/usr/sbin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8356) executed binary:
+   ↳ [92m[1m/usr/bin/cat[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8357) executed binary:
+   ↳ [92m[1m/usr/bin/tty[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8359) executed binary:
+   ↳ [92m[1m/usr/bin/locale[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8360) executed binary:
+   ↳ [92m[1m/usr/bin/sed[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8362) executed binary:
+   ↳ [92m[1m/usr/bin/readlink[0m
+[96m[AUDIT][0m Process [1m<...>[0m (PID 8361) executed binary:
+   ↳ [92m[1m/usr/bin/basename[0m
+[96m[AUDIT][0m Process [1mbash[0m (PID 8339) executed binary:
+   ↳ [92m[1m/usr/bin/pkill[0m
+[92m[*] Detaching tracepoint and exiting. Goodbye![0m
+Connection to 172.16.205.135 closed.

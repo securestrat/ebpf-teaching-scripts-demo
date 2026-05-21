@@ -1,0 +1,136 @@
+[95m[1m=== eBPF Curriculum - Lesson 3: eBPF Maps ===[0m
+[94m[*] Compiling and validating with the Verifier...[0m
+[92m[✓] Success! eBPF Map 'stats_map' allocated in kernel memory.[0m
+[94m[*] Attaching kprobe to 'b'__x64_sys_write''...[0m
+[92m[✓] Monitoring active. Drawing dashboard every 1s...[0m
+TERM environment variable not set.
+[96m[1m========================================================================[0m
+             📊 [1meBPF LIVE WRITE TELEMETRY DASHBOARD[0m (Ctrl+C to Exit)
+[96m========================================================================[0m
+ [1mPID        PROCESS              WRITE CALLS     BYTES WRITTEN       [0m
+[96m------------------------------------------------------------------------[0m
+ 8176       python3              6               1.42 MB             
+ 8175       sshd-session         2               484.05 KB           
+ 8202       clear                1               242.12 KB           
+[96m========================================================================[0m
+TERM environment variable not set.
+[96m[1m========================================================================[0m
+             📊 [1meBPF LIVE WRITE TELEMETRY DASHBOARD[0m (Ctrl+C to Exit)
+[96m========================================================================[0m
+ [1mPID        PROCESS              WRITE CALLS     BYTES WRITTEN       [0m
+[96m------------------------------------------------------------------------[0m
+ 8176       python3              15              3.55 MB             
+ 8175       sshd-session         5               1.18 MB             
+ 8202       clear                1               242.12 KB           
+ 8203       clear                1               242.29 KB           
+[96m========================================================================[0m
+TERM environment variable not set.
+[96m[1m========================================================================[0m
+             📊 [1meBPF LIVE WRITE TELEMETRY DASHBOARD[0m (Ctrl+C to Exit)
+[96m========================================================================[0m
+ [1mPID        PROCESS              WRITE CALLS     BYTES WRITTEN       [0m
+[96m------------------------------------------------------------------------[0m
+ 8176       python3              25              5.91 MB             
+ 8205       sshd-session         21              4.97 MB             
+ 8204       sshd                 11              2.60 MB             
+ 8175       sshd-session         9               2.13 MB             
+ 1030       auditd               6               17591443388856.52 MB
+ 1117       sshd                 2               484.82 KB           
+ 8202       clear                1               242.12 KB           
+ 8206       clear                1               242.53 KB           
+ 8203       clear                1               242.29 KB           
+[96m========================================================================[0m
+TERM environment variable not set.
+[96m[1m========================================================================[0m
+             📊 [1meBPF LIVE WRITE TELEMETRY DASHBOARD[0m (Ctrl+C to Exit)
+[96m========================================================================[0m
+ [1mPID        PROCESS              WRITE CALLS     BYTES WRITTEN       [0m
+[96m------------------------------------------------------------------------[0m
+ 8234       dd                   53              12.57 MB            
+ 8176       python3              40              9.47 MB             
+ 1096       gdbus                35              8.30 MB             
+ 8204       sshd                 32              7.58 MB             
+ 8205       sshd-session         29              6.87 MB             
+ 1030       auditd               27              17588844094398.32 MB
+ 1054       systemd-logind       26              6.16 MB             
+ 1095       gdbus                24              5.69 MB             
+ 1          systemd              23              0 B                 
+ 8175       sshd-session         13              3.08 MB             
+ 8209       sshd-session         12              2.84 MB             
+ 1158       rs:main Q:Reg        8               1.90 MB             
+ 1117       sshd                 2               484.82 KB           
+ 8202       clear                1               242.12 KB           
+ 8211       bash                 1               242.72 KB           
+[96m========================================================================[0m
+TERM environment variable not set.
+[96m[1m========================================================================[0m
+             📊 [1meBPF LIVE WRITE TELEMETRY DASHBOARD[0m (Ctrl+C to Exit)
+[96m========================================================================[0m
+ [1mPID        PROCESS              WRITE CALLS     BYTES WRITTEN       [0m
+[96m------------------------------------------------------------------------[0m
+ 8176       python3              61              14.45 MB            
+ 8234       dd                   53              12.57 MB            
+ 1096       gdbus                35              8.30 MB             
+ 8204       sshd                 32              7.58 MB             
+ 8205       sshd-session         29              6.87 MB             
+ 1030       auditd               27              17588844094398.32 MB
+ 1054       systemd-logind       26              6.16 MB             
+ 1095       gdbus                24              5.69 MB             
+ 1          systemd              23              0 B                 
+ 8175       sshd-session         17              4.03 MB             
+ 8209       sshd-session         12              2.84 MB             
+ 1158       rs:main Q:Reg        8               1.90 MB             
+ 1117       sshd                 2               484.82 KB           
+ 8202       clear                1               242.12 KB           
+ 8211       bash                 1               242.72 KB           
+[96m========================================================================[0m
+TERM environment variable not set.
+[96m[1m========================================================================[0m
+             📊 [1meBPF LIVE WRITE TELEMETRY DASHBOARD[0m (Ctrl+C to Exit)
+[96m========================================================================[0m
+ [1mPID        PROCESS              WRITE CALLS     BYTES WRITTEN       [0m
+[96m------------------------------------------------------------------------[0m
+ 8176       python3              82              19.44 MB            
+ 8234       dd                   53              12.57 MB            
+ 1030       auditd               40              17587235007352.78 MB
+ 1096       gdbus                35              8.30 MB             
+ 8204       sshd                 32              7.58 MB             
+ 8205       sshd-session         29              6.87 MB             
+ 8239       sshd-session         29              6.89 MB             
+ 1054       systemd-logind       26              6.16 MB             
+ 8238       sshd                 26              6.18 MB             
+ 1095       gdbus                24              5.69 MB             
+ 1          systemd              23              0 B                 
+ 8175       sshd-session         21              4.98 MB             
+ 8209       sshd-session         12              2.84 MB             
+ 1158       rs:main Q:Reg        8               1.90 MB             
+ 1117       sshd                 4               971.15 KB           
+[96m========================================================================[0m
+[92m[*] Stopping and cleaning up...[0m
+[1m📋 FINAL CONSOLIDATED STATISTICS REPORT:[0m
+[96m------------------------------------------------------------------------[0m
+ PID        PROCESS              WRITE CALLS     BYTES WRITTEN       
+[96m------------------------------------------------------------------------[0m
+ 1030       auditd               49              17586121024013.55 MB
+ 8176       python3              105             24.91 MB            
+ 8234       dd                   53              12.57 MB            
+ 1096       gdbus                51              12.10 MB            
+ 1054       systemd-logind       43              10.20 MB            
+ 1095       gdbus                33              7.83 MB             
+ 8204       sshd                 32              7.58 MB             
+ 8238       sshd                 30              7.13 MB             
+ 8239       sshd-session         29              6.89 MB             
+ 8205       sshd-session         29              6.87 MB             
+ 8175       sshd-session         24              5.69 MB             
+ 8209       sshd-session         12              2.84 MB             
+ 8243       sshd-session         8               1.90 MB             
+ 1158       rs:main Q:Reg        8               1.90 MB             
+ 1117       sshd                 4               971.15 KB           
+ 8266       basename             1               243.50 KB           
+ 8267       readlink             1               243.50 KB           
+ 8265       sed                  1               243.49 KB           
+ 8264       locale               1               243.49 KB           
+ 8262       tty                  1               243.49 KB           
+[96m------------------------------------------------------------------------[0m
+[92m[*] eBPF program unloaded successfully. Goodbye![0m
+Connection to 172.16.205.135 closed.

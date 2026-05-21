@@ -1,0 +1,17 @@
+[95m[1m=== eBPF Curriculum - Lesson 6: Uprobes & Uretprobes ===[0m
+[94m[*] Compiling user-space instrumentations and registers...[0m
+[92m[✓] Assembly verified.
+[94m[*] Attaching uretprobe to /bin/bash:readline...[0m
+[92m[✓] Keystroke hook is active![0m
+[93m[1m
+👉 HOW TO TRIGGER AUDIT LOGS: [0m
+   1. Open another terminal shell session.
+   2. Ensure the shell is bash (run: 'bash' if in zsh/sh).
+   3. Type commands (e.g., 'whoami', 'pwd', 'ls') and press Enter.
+   4. Watch this terminal output to see the typed characters intercepted in real-time!
+[94m[*] Listening for bash commands (Press Ctrl+C to stop)...[0m
+[96m[KEYSTROKE AUDIT][0m [92m[1mbash typed:[0m '[1mwhoami[0m'
+[96m[KEYSTROKE AUDIT][0m [92m[1mbash typed:[0m '[1muname -m[0m'
+[96m[KEYSTROKE AUDIT][0m [92m[1mbash typed:[0m '[1mexit[0m'
+[92m[*] Dynamic uprobes detached successfully. Goodbye![0m
+Connection to 172.16.205.135 closed.
