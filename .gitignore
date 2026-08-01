@@ -1,0 +1,9 @@
+# Binaries
+false_sharing_demo
+
+# macOS
+.DS_Store
+
+# Object files
+*.o
+*.out

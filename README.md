@@ -1,6 +1,6 @@
-# Progressive eBPF Teaching Curriculum 🚀
+# Progressive eBPF Teaching Curriculum & Systems Performance 🚀
 
-Welcome to the **Progressive eBPF Teaching Curriculum**! This repository is designed to take you from an absolute beginner with no kernel experience to building high-performance, production-grade eBPF tools.
+Welcome to the **Progressive eBPF Teaching Curriculum**! This repository is designed to take you from an absolute beginner with no kernel experience to building high-performance, production-grade eBPF tools and understanding underlying multicore hardware performance.
 
 eBPF (Extended Berkeley Packet Filter) is a revolutionary technology that allows you to run sandboxed programs inside the Linux kernel without changing kernel source code or loading kernel modules. Think of it as **JavaScript for the Kernel**—making the kernel dynamically programmable!
 
@@ -17,6 +17,7 @@ graph TD
     C --> D["04_tracepoints<br/>(Stable tracepoints, ABI safety, argument reading)"]
     D --> E["05_ring_buffer<br/>(Perf rings, custom structs, enter/exit correlations)"]
     E --> F["06_uprobes<br/>(User-space hooks, readline auditing, binary tracing)"]
+    F --> G["false_cache_sharing<br/>(L1/L2 Cache lines, MESI coherency, Padding benchmarks)"]
     
     style A fill:#4F46E5,stroke:#312E81,stroke-width:2px,color:#fff
     style B fill:#6366F1,stroke:#3730A3,stroke-width:2px,color:#fff
@@ -24,20 +25,38 @@ graph TD
     style D fill:#A5B4FC,stroke:#4F46E5,stroke-width:2px,color:#1E1B4B
     style E fill:#C7D2FE,stroke:#6366F1,stroke-width:2px,color:#1E1B4B
     style F fill:#E0E7FF,stroke:#818CF8,stroke-width:2px,color:#1E1B4B
+    style G fill:#38BDF8,stroke:#0284C7,stroke-width:2px,color:#0F172A
 ```
 
 ---
 
-## 📖 Lesson Index
+## 📖 Lesson & Module Index
 
-| Lesson | Folder | Primary Concepts Covered | Practical Outcome |
+| Module | Folder | Primary Concepts Covered | Practical Outcome |
 | :--- | :--- | :--- | :--- |
-| **1** | [`01_helloworld`](file:///Users/vinit/.gemini/antigravity/worktrees/ebpf/ebpf-teaching-scripts-demo/01_helloworld) | BCC loader boilerplate, kernel `kprobes`, trace pipe, kernel-user isolation | Print "Hello World" on every new process spawn. |
-| **2** | [`02_context_helpers`](file:///Users/vinit/.gemini/antigravity/worktrees/ebpf/ebpf-teaching-scripts-demo/02_context_helpers) | Kernel context `ctx` pointers, helper functions, process ID logic, UID auditing | Inspect PID, parent TGID, user ID, and executable name. |
-| **3** | [`03_maps_hash`](file:///Users/vinit/.gemini/antigravity/worktrees/ebpf/ebpf-teaching-scripts-demo/03_maps_hash) | eBPF Hash Maps (`BPF_HASH`), atomic helpers, polling maps from Python | Real-time CLI terminal dashboard counting systems calls. |
-| **4** | [`04_tracepoints`](file:///Users/vinit/.gemini/antigravity/worktrees/ebpf/ebpf-teaching-scripts-demo/04_tracepoints) | Kernel stable tracepoints vs dynamic kprobes, ABI structure inspection | Audit executed filenames safely across kernel upgrades. |
-| **5** | [`05_ring_buffer`](file:///Users/vinit/.gemini/antigravity/worktrees/ebpf/ebpf-teaching-scripts-demo/05_ring_buffer) | Perf event buffers (`BPF_PERF_OUTPUT`), custom C structs, lifecycle timing correlation | Production-grade `execsnoop` showing process lifetimes. |
-| **6** | [`06_uprobes`](file:///Users/vinit/.gemini/antigravity/worktrees/ebpf/ebpf-teaching-scripts-demo/06_uprobes) | Dynamic user-space probes (`uprobes`/`uretprobes`), parsing libraries | Keystroke auditor capturing commands typed into any `/bin/bash`. |
+| **1** | `01_helloworld` | BCC loader boilerplate, kernel `kprobes`, trace pipe, kernel-user isolation | Print "Hello World" on every new process spawn. |
+| **2** | `02_context_helpers` | Kernel context `ctx` pointers, helper functions, process ID logic, UID auditing | Inspect PID, parent TGID, user ID, and executable name. |
+| **3** | `03_maps_hash` | eBPF Hash Maps (`BPF_HASH`), atomic helpers, polling maps from Python | Real-time CLI terminal dashboard counting systems calls. |
+| **4** | `04_tracepoints` | Kernel stable tracepoints vs dynamic kprobes, ABI structure inspection | Audit executed filenames safely across kernel upgrades. |
+| **5** | `05_ring_buffer` | Perf event buffers (`BPF_PERF_OUTPUT`), custom C structs, lifecycle timing correlation | Production-grade `execsnoop` showing process lifetimes. |
+| **6** | `06_uprobes` | Dynamic user-space probes (`uprobes`/`uretprobes`), parsing libraries | Keystroke auditor capturing commands typed into any `/bin/bash`. |
+| **Bonus** | `false_cache_sharing` | CPU Cache lines (64B), MESI protocol, Cache Line Bouncing, `alignas(64)` padding | Multithreaded C++ benchmark demonstrating 3x+ performance gain. |
+
+---
+
+## ⚡ CPU False Cache Sharing Demo & Benchmark
+
+Located in [`false_cache_sharing/`](./false_cache_sharing) (and workspace root):
+- **Problem**: Demonstrates how multiple threads modifying independent variables on the same 64-byte CPU cache line trigger constant L1/L2 cache invalidations (cache line bouncing).
+- **Fix**: Aligns and pads structs to 64 bytes (`alignas(64)`), isolating each thread's data.
+- **Benchmark**: High-resolution performance suite reporting memory addresses, MOps/sec, and speedup factor (3x+ faster).
+
+```bash
+# Build and run the benchmark
+make
+make run
+make sweep
+```
 
 ---
 
@@ -76,9 +95,3 @@ mount | grep debugfs
 1. **Self-Documenting Code**: Every line of kernel C and user Python is exhaustively commented, explaining *why* we do things, *what* safety checks the kernel verifier expects, and *how* the runtime compiles the code.
 2. **Interactive Terminal UIs**: The user-space Python loader scripts aren't just dry printouts. They feature elegant ANSI formatting, interactive loaders, and auto-updating dashboard UIs.
 3. **Progressive Architecture**: We avoid repeating concepts. Once you learn about `bpf_get_current_comm()`, we focus on map logic or perf rings, rather than re-explaining process context.
-
----
-
-## 🚀 Let's Get Started!
-
-Move to **[Lesson 1: Hello World](file:///Users/vinit/.gemini/antigravity/worktrees/ebpf/ebpf-teaching-scripts-demo/01_helloworld)** to load your first eBPF bytecode instructions into the kernel!
